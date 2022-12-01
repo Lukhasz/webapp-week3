@@ -10,18 +10,13 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class WebApplication {
 
-	private double squareRoot;
-
 	public static void main(String[] args) {
 		SpringApplication.run(WebApplication.class, args);
-
-
-
 	}
 
 	@GetMapping("/")
 	public String index() {
-		return "Greetings, please use /author, /author/name, or /square-number/{number, without curlies}";
+		return "Welcome. Please use /author, /author/name, or /square-number/{number, without curlies}";
 	}
 
 	@GetMapping("/author")
@@ -37,9 +32,6 @@ public class WebApplication {
 
 	@GetMapping("/square-number/{nr}")
 	public String read(@PathVariable(name = "nr") double squareRoot) {
-		return "square root of " + squareRoot + " is " + Math.sqrt(squareRoot);
+			return "square root of " + squareRoot + " is " + Math.sqrt(squareRoot);
 	}
-
-
-
 }
