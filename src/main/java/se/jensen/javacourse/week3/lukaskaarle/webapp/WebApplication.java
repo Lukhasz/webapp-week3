@@ -16,7 +16,7 @@ public class WebApplication {
 
 	@GetMapping("/")
 	public String index() {
-		return "Welcome. Please use /author, /author/name, or /square-number/{number, without curlies}";
+		return "Welcome. Please use \"/author\", \"/author/name\", \"/square-number/*number*\", or \"/square-root/*number*\"";
 	}
 
 	@GetMapping("/author")
@@ -31,7 +31,12 @@ public class WebApplication {
 	}
 
 	@GetMapping("/square-number/{nr}")
-	public String read(@PathVariable(name = "nr") double squareRoot) {
-			return "square root of " + squareRoot + " is " + Math.sqrt(squareRoot);
+	public String readSquare(@PathVariable(name = "nr") double squared) {
+		return "the square of " + squared + " is " + squared * squared;
+	}
+
+	@GetMapping("/square-root/{nr}")
+	public String readSquareRoot(@PathVariable(name = "nr") double squareRoot) {
+			return "square root of " + (squareRoot) + " is " + Math.sqrt(squareRoot) ;
 	}
 }

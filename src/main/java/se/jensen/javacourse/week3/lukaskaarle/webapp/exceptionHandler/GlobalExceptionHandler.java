@@ -19,6 +19,5 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
         String message = "Ooopsie, please enter a valid URI";
         return handleExceptionInternal(ex, message,
         new HttpHeaders(), HttpStatus.valueOf(400), request);
-
     }
 }
